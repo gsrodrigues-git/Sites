@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TechStore - E-commerce premium de tecnologia com visual futurista, navegacao fluida e foco total em experiencia do usuario.">
+    <meta name="theme-color" content="#07111f">
+    <title>TechStore | Tecnologia premium com design futurista</title>
+
+    <link rel="shortcut icon" href="img/1770499962797.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="storefront.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="landing-page" data-theme="dark">
+    <script>
+        try {
+            var savedTheme = localStorage.getItem("techstore-theme");
+            var preferredTheme = savedTheme || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+            document.body.dataset.theme = preferredTheme;
+            document.documentElement.style.colorScheme = preferredTheme;
+        } catch (error) {}
+    </script>
+    <div class="page-loader" id="pageLoader" aria-hidden="true">
+        <div class="loader-shell">
+            <span class="loader-pill">TechStore Prime</span>
+            <strong>Carregando uma experiencia premium</strong>
+            <div class="loader-bar">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <header class="site-header" id="siteHeader">
+        <nav class="site-nav landing-shell">
+            <a class="brand-link" href="#inicio" aria-label="TechStore">
+                <span class="brand-symbol">
+                    <i class="fa-solid fa-bolt"></i>
+                </span>
+                <span class="brand-copy">
+                    <strong>TechStore</strong>
+                    <small>Curadoria tech premium</small>
+                </span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navPanel" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-panel" id="navPanel">
+                <div class="nav-links">
+                    <a class="nav-anchor" href="#inicio">Inicio</a>
+                    <a class="nav-anchor" href="#produtos">Produto</a>
+                    <a class="nav-anchor" href="#beneficios">Beneficios</a>
+                    <a class="nav-anchor" href="#avaliacoes">Avaliacoes</a>
+                    <a class="nav-anchor" href="#relacionados">Relacionados</a>
+                </div>
+
+                <div class="nav-tools">
+                    <button class="icon-surface theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema" aria-pressed="false">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <button class="icon-surface bag-button" id="bagButton" type="button" aria-label="0 itens na sua bag">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="bag-count" id="bagCount">0</span>
+                    </button>
+                    <a class="button-secondary compact" href="login.html" data-login-link>Entrar</a>
+                    <a class="button-primary compact" href="#produtos">Comprar agora</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section" id="inicio">
+            <div class="hero-noise" aria-hidden="true"></div>
+            <div class="landing-shell hero-grid">
+                <div class="hero-copy reveal">
+                    <span class="section-kicker">TechStore flagship selection</span>
+                    <h1>O smartphone mais poderoso que voce ja viu.</h1>
+                    <p>
+                        Design marcante, resposta instantanea e uma camera que valoriza cada detalhe da sua rotina,
+                        do trabalho a criacao de conteudo.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="button-primary" href="#produtos">
+                            <span>Explorar experiencia</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a class="button-secondary" href="#relacionados">
+                            <span>Ver ecossistema</span>
+                            <i class="fa-solid fa-layer-group"></i>
+                        </a>
+                    </div>
+
+                    <div class="hero-insights">
+                        <article class="insight-card">
+                            <strong>4.8/5</strong>
+                            <span>media nas avaliacoes verificadas</span>
+                        </article>
+                        <article class="insight-card">
+                            <strong>24h</strong>
+                            <span>expedicao prioritaria nas capitais</span>
+                        </article>
+                        <article class="insight-card">
+                            <strong>97%</strong>
+                            <span>indice de recomendacao da linha premium</span>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="hero-visual reveal">
+                    <div class="ambient-ring ring-a" aria-hidden="true"></div>
+                    <div class="ambient-ring ring-b" aria-hidden="true"></div>
+                    <div class="hero-device-card">
+                        <div class="hero-device-shell" id="heroDeviceShell" data-color="stellar-blue">
+                            <span class="hero-camera-dot dot-a"></span>
+                            <span class="hero-camera-dot dot-b"></span>
+                            <span class="hero-camera-dot dot-c"></span>
+                            <img id="heroDeviceImage" src="" alt="Produto em destaque da TechStore">
+                        </div>
+                    </div>
+
+                    <article class="floating-card floating-card-top">
+                        <span class="card-label">Entrega premium</span>
+                        <strong>Receba com setup assistido</strong>
+                        <p>Configuracao guiada e suporte prioritario logo apos a compra.</p>
+                    </article>
+
+                    <article class="floating-card floating-card-bottom">
+                        <span class="card-label">Nova geracao</span>
+                        <strong id="heroSpotlightName">TechStore Edition</strong>
+                        <p id="heroSpotlightText">Processamento rapido, acabamento premium e autonomia para o dia inteiro.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="marquee-strip">
+            <div class="marquee-track">
+                <span>Glass design</span>
+                <span>Dark & Light Mode</span>
+                <span>Entrega expressa</span>
+                <span>Garantia premium</span>
+                <span>Microinteracoes suaves</span>
+                <span>Curadoria TechStore</span>
+                <span>Glass design</span>
+                <span>Dark & Light Mode</span>
+                <span>Entrega expressa</span>
+                <span>Garantia premium</span>
+            </div>
+        </section>
+
+        <section class="featured-section section-space" id="produtos">
+            <div class="landing-shell">
+                <div class="heading-group reveal">
+                    <span class="section-kicker">Secao de produto</span>
+                    <h2>Visual premium por fora. Experiencia poderosa por dentro.</h2>
+                    <p>
+                        A TechStore apresenta o produto como ele deve ser percebido: pelo impacto no seu dia a dia,
+                        nao apenas por uma ficha tecnica fria.
+                    </p>
+                </div>
+
+                <div class="featured-layout">
+                    <div class="featured-media glass-surface reveal">
+                        <div class="surface-header">
+                            <span class="badge-soft" id="featuredBadge">Produto em destaque</span>
+                            <span class="mini-rating" id="featuredRating">4.8/5</span>
+                        </div>
+
+                        <div class="zoom-stage" id="zoomStage">
+                            <div class="stage-glow" id="stageGlow" aria-hidden="true"></div>
+                            <div class="device-shell" id="deviceShell" data-color="stellar-blue">
+                                <span class="device-speaker" aria-hidden="true"></span>
+                                <span class="device-camera" aria-hidden="true"></span>
+                                <img id="featuredImage" src="" alt="Imagem do produto em destaque">
+                            </div>
+                        </div>
+
+                        <div class="gallery-rail" id="galleryThumbs" aria-label="Galeria do produto"></div>
+
+                        <div class="color-panel">
+                            <div>
+                                <span class="option-label">Cores disponiveis</span>
+                                <strong id="currentColorName">Azul Stellar</strong>
+                            </div>
+                            <div class="color-switcher" id="colorSwitcher" role="radiogroup" aria-label="Escolha a cor do produto"></div>
+                        </div>
+                    </div>
+
+                    <div class="featured-copy reveal">
+                        <span class="section-kicker">Produto da semana</span>
+                        <h2 id="featuredName">Carregando produto...</h2>
+                        <p class="featured-summary" id="featuredSummary">
+                            Preparando a melhor combinacao entre design, desempenho e experiencia de uso.
+                        </p>
+
+                        <div class="price-panel">
+                            <div class="price-stack">
+                                <span class="old-price" id="featuredOldPrice"></span>
+                                <strong class="current-price" id="featuredPrice"></strong>
+                            </div>
+                            <span class="installments" id="featuredInstallments"></span>
+                        </div>
+
+                        <div class="benefit-list" id="benefitList"></div>
+
+                        <div class="feature-pills">
+                            <span><i class="fa-solid fa-truck-fast"></i> Frete premium incluso</span>
+                            <span><i class="fa-solid fa-shield-heart"></i> Garantia estendida opcional</span>
+                            <span><i class="fa-solid fa-sparkles"></i> Setup com curadoria TechStore</span>
+                        </div>
+
+                        <div class="featured-actions">
+                            <button class="button-primary" id="buyFeaturedBtn" type="button">
+                                <span>Adicionar a bag</span>
+                                <i class="fa-solid fa-bag-shopping"></i>
+                            </button>
+                            <a class="button-secondary" id="detailsFeaturedLink" href="produto.html">
+                                <span>Ver detalhes completos</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits-section section-space" id="beneficios">
+            <div class="landing-shell">
+                <div class="heading-group reveal">
+                    <span class="section-kicker">Beneficios reais</span>
+                    <h2>Menos ruido tecnico. Mais clareza sobre o que melhora sua rotina.</h2>
+                    <p>
+                        Cada card foi pensado para comunicar valor de forma direta, elegante e facil de entender.
+                    </p>
+                </div>
+
+                <div class="benefits-grid">
+                    <article class="benefit-card reveal">
+                        <span class="benefit-icon"><i class="fa-solid fa-camera-retro"></i></span>
+                        <h3>Fotos impressionantes em qualquer luz</h3>
+                        <p>Mais confianca para registrar momentos, produtos ou projetos mesmo em cenarios noturnos.</p>
+                    </article>
+                    <article class="benefit-card reveal">
+                        <span class="benefit-icon"><i class="fa-solid fa-gauge-high"></i></span>
+                        <h3>Desempenho que mantem o ritmo</h3>
+                        <p>Apps, edicao, multitarefa e jogos fluem sem a sensacao de espera ou travamento.</p>
+                    </article>
+                    <article class="benefit-card reveal">
+                        <span class="benefit-icon"><i class="fa-solid fa-battery-full"></i></span>
+                        <h3>Bateria para o dia inteiro de verdade</h3>
+                        <p>Mais liberdade para trabalhar, criar conteudo e viajar sem depender do carregador a todo momento.</p>
+                    </article>
+                    <article class="benefit-card reveal">
+                        <span class="benefit-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                        <h3>Interface premium e intuitiva</h3>
+                        <p>Transicoes suaves, visual limpo e uma sensacao de produto caro logo no primeiro toque.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="social-proof section-space" id="avaliacoes">
+            <div class="landing-shell social-layout">
+                <div class="social-summary glass-surface reveal">
+                    <span class="section-kicker">Prova social</span>
+                    <h2>Quem compra, percebe a diferenca e recomenda.</h2>
+                    <p>
+                        Avaliacoes fortes, entrega consistente e uma apresentacao visual que transmite confianca
+                        antes mesmo do clique final.
+                    </p>
+
+                    <div class="score-panel">
+                        <div>
+                            <strong class="score-value" id="reviewAverage">4.8</strong>
+                            <div class="star-row" id="reviewStars" aria-label="Avaliacao media do produto"></div>
+                        </div>
+                        <p><strong id="reviewCount">12.847</strong> avaliacoes verificadas ao longo do ultimo ano.</p>
+                    </div>
+
+                    <div class="trust-points">
+                        <span><i class="fa-solid fa-circle-check"></i> Compra protegida</span>
+                        <span><i class="fa-solid fa-headset"></i> Suporte humano especializado</span>
+                        <span><i class="fa-solid fa-rotate"></i> Troca simplificada</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-stack" id="testimonialStack"></div>
+            </div>
+        </section>
+
+        <section class="related-section section-space" id="relacionados">
+            <div class="landing-shell">
+                <div class="heading-group reveal">
+                    <span class="section-kicker">Voce tambem pode gostar</span>
+                    <h2>Monte um ecossistema de tecnologia com o mesmo padrao premium.</h2>
+                    <p>
+                        Produtos relacionados em cards interativos, com animacoes suaves e leitura rapida para
+                        aumentar conversao sem deixar o layout generico.
+                    </p>
+                </div>
+
+                <div class="related-grid" id="relatedGrid"></div>
+            </div>
+        </section>
+
+        <section class="cta-section section-space">
+            <div class="landing-shell">
+                <div class="cta-panel glass-surface reveal">
+                    <div>
+                        <span class="section-kicker">Pronto para subir de nivel?</span>
+                        <h2>Seu proximo upgrade tech pode comecar agora.</h2>
+                        <p>
+                            Visual premium, navegacao envolvente e uma experiencia pensada para gerar desejo de compra
+                            sem perder leveza.
+                        </p>
+                    </div>
+                    <div class="cta-actions">
+                        <a class="button-primary" href="#produtos">
+                            <span>Quero esse destaque</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a class="button-secondary" href="login.html" data-login-link>
+                            <span>Acessar minha conta</span>
+                            <i class="fa-solid fa-user"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="landing-footer">
+        <div class="landing-shell footer-grid">
+            <div>
+                <a class="brand-link footer-brand" href="#inicio">
+                    <span class="brand-symbol">
+                        <i class="fa-solid fa-bolt"></i>
+                    </span>
+                    <span class="brand-copy">
+                        <strong>TechStore</strong>
+                        <small>Visual premium, compra simples.</small>
+                    </span>
+                </a>
+                <p class="footer-text">
+                    Loja conceito para tecnologia premium, com foco em design, confianca e uma experiencia de compra memoravel.
+                </p>
+            </div>
+
+            <div>
+                <h3>Navegacao</h3>
+                <a href="#produtos">Produto</a>
+                <a href="#beneficios">Beneficios</a>
+                <a href="#avaliacoes">Avaliacoes</a>
+                <a href="#relacionados">Relacionados</a>
+            </div>
+
+            <div>
+                <h3>Contato</h3>
+                <a href="mailto:contato@techstore.com.br">contato@techstore.com.br</a>
+                <a href="tel:+558133334444">(81) 3333-4444</a>
+                <span>Atendimento premium de segunda a sabado</span>
+            </div>
+        </div>
+
+        <div class="landing-shell footer-bottom-line">
+            <p>&copy; 2026 TechStore. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <div class="toast-note" id="toastNote" role="status" aria-live="polite">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastMessage">Produto adicionado a sua bag.</span>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="storefront.js"></script>
+    <script src="landing.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TechStore - Detalhes do produto com review, galeria, precos e itens relacionados.">
+    <meta name="theme-color" content="#07111f">
+    <title>TechStore - Produto</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="storefront.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="product-body" data-theme="dark">
+    <script>
+        try {
+            var savedTheme = localStorage.getItem("techstore-theme");
+            var preferredTheme = savedTheme || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+            document.body.dataset.theme = preferredTheme;
+            document.documentElement.style.colorScheme = preferredTheme;
+        } catch (error) {}
+    </script>
+    <header class="simple-header">
+        <nav class="simple-nav">
+            <a class="logo" href="index.html">
+                <i class="fas fa-bolt"></i> TechStore
+            </a>
+
+            <div class="simple-nav-cluster">
+                <div class="simple-links">
+                    <a href="index.html#produtos">Produtos</a>
+                    <a href="index.html#avaliacoes">Avaliacoes</a>
+                    <a href="index.html#relacionados">Relacionados</a>
+                </div>
+
+                <div class="simple-actions">
+                    <button class="store-icon-btn" id="themeToggle" type="button" aria-label="Alternar tema" aria-pressed="false">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <button class="store-icon-btn" id="bagButton" type="button" aria-label="0 itens na sua bag">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="store-bag-count" id="bagCount">0</span>
+                    </button>
+                    <a class="btn-outline" href="login.html" data-login-link>Entrar</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="product-page">
+        <header class="article-header">
+            <div class="breadcrumb">
+                <a href="index.html">Inicio</a>
+                <span>/</span>
+                <span id="productBreadcrumb"></span>
+            </div>
+            <h1 id="productTitle"></h1>
+            <p class="review-subtitle" id="productDescription"></p>
+            <div class="review-meta">
+                <span class="meta-item">
+                    <i class="fas fa-user-edit"></i>
+                    Por TechStore Lab
+                </span>
+                <span class="meta-item">
+                    <i class="fas fa-calendar"></i>
+                    Atualizado em <strong id="productUpdated"></strong>
+                </span>
+                <span class="meta-item">
+                    <i class="fas fa-tags"></i>
+                    <span id="productCategory"></span>
+                </span>
+            </div>
+            <div class="review-share">
+                <span>Compartilhe:</span>
+                <a class="share-btn" data-share="whatsapp" aria-label="Compartilhar no WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a class="share-btn" data-share="facebook" aria-label="Compartilhar no Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a class="share-btn" data-share="twitter" aria-label="Compartilhar no Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <button class="share-btn" data-share="copy" type="button" aria-label="Copiar link">
+                    <i class="fas fa-link"></i>
+                </button>
+                <span class="share-feedback" id="shareFeedback" role="status" aria-live="polite"></span>
+            </div>
+        </header>
+
+        <div class="product-layout">
+            <article class="review-article">
+                <section class="product-hero product-section" id="productHero">
+                    <div class="product-hero-media">
+                        <figure class="product-hero-image">
+                            <img id="productHeroImage" alt="">
+                            <figcaption id="productCaption"></figcaption>
+                        </figure>
+                        <div class="product-hero-badges" id="productBadges"></div>
+                    </div>
+                    <div class="product-hero-content">
+                        <span class="hero-kicker">Resumo rapido</span>
+                        <div class="product-price-block">
+                            <span class="product-old-price" id="productOldPrice"></span>
+                            <div class="product-current-price" id="productPrice"></div>
+                            <div class="product-installments" id="productInstallments"></div>
+                        </div>
+                        <div class="product-cta">
+                            <button class="btn-primary" id="productAddToBag" type="button">Adicionar a bag</button>
+                            <button class="btn-outline" id="productOpenBag" type="button" data-open-bag>Abrir bag</button>
+                            <a class="btn-outline" href="index.html#produtos">Voltar</a>
+                        </div>
+                        <div class="product-highlights" id="productHighlights"></div>
+                    </div>
+                </section>
+
+                <section class="review-pros-cons product-section">
+                    <div class="pros-card">
+                        <h3>Pros</h3>
+                        <ul class="insight-list" id="productPros"></ul>
+                    </div>
+                    <div class="cons-card">
+                        <h3>Contras</h3>
+                        <ul class="insight-list" id="productCons"></ul>
+                    </div>
+                </section>
+
+                <section class="product-details product-section" id="specs">
+                    <div class="section-header">
+                        <h2>Informacoes gerais</h2>
+                        <p>Conheca todos os detalhes do produto</p>
+                    </div>
+                    <div class="details-grid">
+                        <div class="product-gallery">
+                            <div class="gallery-main">
+                                <img id="galleryMain" alt="">
+                            </div>
+                            <div class="gallery-thumbs" id="galleryThumbs"></div>
+                        </div>
+                        <div class="product-info-panel">
+                            <h3>Descricao completa</h3>
+                            <p id="productLongDescription"></p>
+                            <div class="product-specs" id="productSpecs"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="product-pricing product-section">
+                    <div class="section-header">
+                        <h2>Preco mensal e atualizado</h2>
+                        <p>Acompanhe o historico de valores</p>
+                    </div>
+                    <div class="price-highlights">
+                        <article class="price-highlight">
+                            <span class="price-label">Menor preco registrado</span>
+                            <strong class="price-value" id="priceMinValue"></strong>
+                            <span class="price-date" id="priceMinDate"></span>
+                        </article>
+                        <article class="price-highlight emphasis">
+                            <span class="price-label">Menor preco hoje</span>
+                            <strong class="price-value" id="priceCurrentValue"></strong>
+                            <span class="price-date" id="priceCurrentDate"></span>
+                        </article>
+                    </div>
+                    <div class="price-table" id="priceTable"></div>
+                </section>
+
+                <section class="product-reviews product-section">
+                    <div class="section-header">
+                        <h2>Avaliacoes pessoais</h2>
+                        <p>Opinioes de quem ja usou</p>
+                    </div>
+                    <div class="reviews-grid" id="reviewsGrid"></div>
+                </section>
+
+                <section class="product-photo-grid product-section">
+                    <div class="section-header">
+                        <h2>Fotos detalhadas</h2>
+                        <p>Veja cada angulo do produto</p>
+                    </div>
+                    <div class="detail-gallery" id="detailGallery"></div>
+                </section>
+
+                <section class="product-related product-section">
+                    <div class="section-header">
+                        <h2>Produtos relacionados</h2>
+                        <p>Mais itens da mesma categoria</p>
+                    </div>
+                    <div class="grid-produtos" id="relatedGrid"></div>
+                </section>
+            </article>
+
+            <aside class="review-sidebar">
+                <div class="sidebar-card summary-card">
+                    <div class="summary-media">
+                        <img id="summaryImage" alt="">
+                    </div>
+                    <div class="summary-info">
+                        <h4 id="summaryTitle"></h4>
+                        <div class="summary-rating" id="summaryRating"></div>
+                        <div class="summary-price" id="summaryPrice"></div>
+                        <div class="summary-installments" id="summaryInstallments"></div>
+                    </div>
+                    <a class="btn-outline" href="#specs">Ficha tecnica</a>
+                </div>
+
+                <div class="sidebar-card newsletter-card">
+                    <div class="newsletter-header">
+                        <i class="fas fa-envelope-open-text"></i>
+                        <div>
+                            <strong>Seu resumo inteligente do mundo tech!</strong>
+                            <span>Assine a newsletter e receba noticias e reviews em primeira mao.</span>
+                        </div>
+                    </div>
+                    <form class="newsletter-form sidebar-newsletter" id="sidebarNewsletter">
+                        <input type="email" placeholder="Digite seu e-mail" required>
+                        <button type="submit">inscreva-se</button>
+                    </form>
+                    <label class="newsletter-check">
+                        <input type="checkbox" required>
+                        <span>Confirmo que li e concordo com os Termos de Uso e Politica de Privacidade.</span>
+                    </label>
+                    <span class="newsletter-feedback" id="newsletterFeedback" role="status" aria-live="polite"></span>
+                </div>
+
+                <div class="sidebar-card quick-specs">
+                    <h4>Especificacoes rapidas</h4>
+                    <div class="quick-specs-grid" id="quickSpecs"></div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="simple-footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 TechStore. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="storefront.js"></script>
+    <script src="produto.js"></script>
+</body>
+
+</html>

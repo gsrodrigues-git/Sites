@@ -1,0 +1,388 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TechStore - A melhor loja de eletrônicos com produtos de alta qualidade">
+    <meta name="theme-color" content="#007bff">
+    <title>TechStore - eletrônicos Modernos</title>
+
+    <!-- Fonts -->
+    <link rel="shortcut icon" href="img/1770499962797.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="styles.css">
+
+        <!-- Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">TechStore</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header id="mainHeader">
+        <nav class="navbar">
+            <a class="logo" data-aos="fade-right" href="#home" aria-label="TechStore">
+                <i class="fas fa-bolt"></i> TechStore
+            </a>
+
+            <ul class="menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Início</a></li>
+                <li><a href="#produtos" class="nav-link">Produtos</a></li>
+                <li><a href="#ofertas" class="nav-link">Ofertas</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="btn-icon" id="searchBtn" aria-label="Pesquisar">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="btn-icon cart-btn" id="cartBtn" aria-label="Carrinho">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <a class="btn-primary" href="login.html" data-login-link>Entrar</a>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Search Bar (Hidden by default) -->
+        <div class="search-bar" id="searchBar">
+            <input type="text" placeholder="Buscar produtos..." id="searchInput">
+            <button class="search-close" id="searchClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Banner Section -->
+        <section class="banner" id="home">
+            <div class="banner-overlay"></div>
+            <div class="banner-content">
+                <div class="banner-layout">
+                    <div class="banner-text" data-aos="fade-up">
+                        <h1>Tecnologia que Transforma</h1>
+                        <p>Descubra os melhores produtos eletrônicos com preços incríveis.</p>
+                        <div class="banner-buttons">
+                            <a href="#produtos" class="btn-secondary">
+                                <span>Explorar Produtos</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="#ofertas" class="btn-outline">
+                                <span>Ver Ofertas</span>
+                                <i class="fas fa-tag"></i>
+                            </a>
+                        </div>
+                        <div class="banner-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-bolt"></i>
+                                <div>
+                                    <strong>Entrega Expressa</strong>
+                                    <span>Receba em até 48h nas capitais</span>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-shield-check"></i>
+                                <div>
+                                    <strong>Garantia Estendida</strong>
+                                    <span>Cobertura premium em todas as linhas</span>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-headset"></i>
+                                <div>
+                                    <strong>Suporte Especialista</strong>
+                                    <span>Equipe tech pronta para ajudar</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="banner-showcase" data-aos="fade-left">
+                        <div class="hero-card primary">
+                            <span class="hero-tag">Review em destaque</span>
+                            <h3>Samsung Galaxy S24 Ultra</h3>
+                            <p>Câmeras profissionais, IA nativa e performance máxima para creators.</p>
+                            <div class="hero-price">
+                                <span>Preço agora</span>
+                                <strong>R$ 7.499,00</strong>
+                            </div>
+                            <a class="btn-primary" href="produto.html?id=2">Ver detalhes</a>
+                        </div>
+                        <div class="hero-mini-grid">
+                            <div class="hero-mini-card">
+                                <span>Top vendido</span>
+                                <strong>iPhone 15 Pro Max</strong>
+                                <small>R$ 8.999,00</small>
+                            </div>
+                            <div class="hero-mini-card">
+                                <span>Novo na loja</span>
+                                <strong>MacBook Pro M3</strong>
+                                <small>R$ 12.999,00</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <div class="arrow">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Produtos Section -->
+        <section class="secao-produtos" id="produtos">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Produtos em Destaque</h2>
+                <p>Selecionamos o melhor para você</p>
+            </div>
+
+            <!-- Filtros -->
+            <div class="filtros" data-aos="fade-up" data-aos-delay="100">
+                <button class="filtro-btn active" data-filter="todos">Todos</button>
+                <button class="filtro-btn" data-filter="smartphones">Smartphones</button>
+                <button class="filtro-btn" data-filter="notebooks">Notebooks</button>
+                <button class="filtro-btn" data-filter="acessorios">Acessórios</button>
+            </div>
+
+            <div class="grid-produtos" id="produtosGrid">
+                <!-- Produtos serão inseridos via JavaScript -->
+            </div>
+
+            <div class="load-more" data-aos="fade-up">
+                <button class="btn-load-more" id="loadMoreBtn">
+                    Carregar Mais Produtos
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Ofertas Section -->
+        <section class="secao-ofertas" id="ofertas">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Ofertas Relâmpago</h2>
+                <p>Aproveite enquanto durar</p>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="countdown-timer" data-aos="fade-up" data-aos-delay="100">
+                <div class="timer-item">
+                    <span class="timer-value" id="hours">00</span>
+                    <span class="timer-label">Horas</span>
+                </div>
+                <div class="timer-separator">:</div>
+                <div class="timer-item">
+                    <span class="timer-value" id="minutes">00</span>
+                    <span class="timer-label">Minutos</span>
+                </div>
+                <div class="timer-separator">:</div>
+                <div class="timer-item">
+                    <span class="timer-value" id="seconds">00</span>
+                    <span class="timer-label">Segundos</span>
+                </div>
+            </div>
+
+            <div class="grid-produtos ofertas-grid" id="ofertasGrid">
+                <!-- Ofertas serão inseridas via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Carrinho Sidebar -->
+        <aside class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h3>
+                    <i class="fas fa-shopping-bag"></i> Meu Carrinho
+                </h3>
+                <button class="cart-close" id="cartClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="cart-items" id="cartItems">
+                <!-- Itens do carrinho serão inseridos via JavaScript -->
+            </div>
+
+            <div class="cart-empty" id="cartEmpty">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Seu carrinho está vazio</p>
+            </div>
+
+            <div class="cart-footer" id="cartFooter">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span class="total-value" id="cartTotal">R$ 0,00</span>
+                </div>
+                <button class="btn-checkout">
+                    Finalizar Compra
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Contato Section -->
+        <section class="secao-contato" id="contato">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Entre em Contato</h2>
+                <p>Estamos aqui para ajudar você</p>
+            </div>
+
+            <div class="contato-container">
+                <div class="contato-info" data-aos="fade-right">
+                    <h3>Informações de Contato</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Endereço</h4>
+                            <p>Av. Boa Viagem, 1234 - Recife, PE</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefone</h4>
+                            <p>(81) 3333-4444</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>E-mail</h4>
+                            <p>contato@techstore.com.br</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Horário</h4>
+                            <p>Seg - Sex: 9h às 18h</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <form class="form-contato" id="contactForm" data-aos="fade-left">
+                    <h3>Envie sua Mensagem</h3>
+                    <div class="form-group">
+                        <input type="text" id="nome" name="nome" placeholder=" " required>
+                        <label for="nome">Nome Completo</label>
+                        <span class="form-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder=" " required>
+                        <label for="email">E-mail</label>
+                        <span class="form-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="telefone" name="telefone" placeholder=" ">
+                        <label for="telefone">Telefone</label>
+                        <span class="form-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="mensagem" name="mensagem" rows="5" placeholder=" " required></textarea>
+                        <label for="mensagem">Mensagem</label>
+                        <span class="form-error"></span>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <span>Enviar Mensagem</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Sobre a TechStore</h4>
+                <p>A melhor loja de eletrônicos do Brasil, com produtos de qualidade e preços imbatíveis.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#ofertas">Ofertas</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Atendimento</h4>
+                <ul>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Trocas e Devoluções</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Receba nossas ofertas exclusivas</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Seu e-mail">
+                    <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 TechStore. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Produto adicionado ao carrinho!</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="js.js"></script>
+</body>
+
+</html>
+
+
