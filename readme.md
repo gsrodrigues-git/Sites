@@ -4,7 +4,11 @@ Site estatico de e-commerce premium para apresentacao e teste publico.
 
 ## Preview para testes
 
-Quando o GitHub Pages terminar a publicacao automatica, o site ficara disponivel em:
+Preview publico imediato:
+
+https://raw.githack.com/gsrodrigues-git/Sites/main/index.html
+
+Quando o GitHub Pages for ativado nas configuracoes do repositorio, o site tambem ficara disponivel em:
 
 https://gsrodrigues-git.github.io/Sites/
 
@@ -17,6 +21,7 @@ https://github.com/gsrodrigues-git/Sites
 - Todo envio para a branch `main` dispara o GitHub Actions.
 - O fluxo em `.github/workflows/pages.yml` publica os arquivos estaticos no GitHub Pages.
 - O arquivo `.nojekyll` evita que o GitHub trate nomes de arquivos como configuracao Jekyll.
+- A primeira ativacao do GitHub Pages pode exigir confirmacao manual em `Settings > Pages`, usando a fonte `GitHub Actions`.
 
 ## Teste local
 
