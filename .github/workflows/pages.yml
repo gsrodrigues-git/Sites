@@ -16,7 +16,32 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  verificar-pages:
+    runs-on: ubuntu-latest
+    outputs:
+      enabled: ${{ steps.pages.outputs.enabled }}
+    steps:
+      - name: Verificar GitHub Pages
+        id: pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          status=$(curl -s -o /tmp/pages.json -w "%{http_code}" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$REPO/pages")
+
+          if [ "$status" = "200" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice::GitHub Pages ainda precisa ser ativado em Settings > Pages com a fonte GitHub Actions."
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+          fi
+
   deploy:
+    needs: verificar-pages
+    if: needs.verificar-pages.outputs.enabled == 'true'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -27,8 +52,6 @@ jobs:
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Preparar arquivos do site
         run: |
